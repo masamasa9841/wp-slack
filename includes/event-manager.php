@@ -185,6 +185,11 @@ class WP_Slack_Event_Manager {
 					if ( 'spam' === $comment_status ) {
 						return false;
 					}
+					
+					// Ignore spam.
+					if ( 'deleted' === $comment_status ) {
+						return false;
+					}
 
 					return sprintf(
 						/* translators: 1) edit URL, 2) comment author, 3) post URL, 4) post title, and 5) comment status. */
